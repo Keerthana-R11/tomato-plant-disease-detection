@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plant disease detection 🌿</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+  
+    <style>
+        /* General Body Styling */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #eef5e9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Sticky Header */
+        .header {
+            position: sticky;
+            top: 0;
+            background-color: rgba(60, 124, 70, 0.8);
+            color: white;
+            padding: 5px 0;
+            z-index: 1000;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .header.scrolled {
+            background-color: #3c7c46;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            flex-wrap: wrap; /* Allow wrapping for smaller screens */
+        }
+
+        .header a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: color 0.3s ease;
+        }
+
+        .header a:hover {
+            color: #a1d3b8;
+        }
+
+        /* Main Content Section */
+        .content {
+            padding: 20px;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        /* Logo Section Styling */
+        .logo-container {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center; /* Center the logo horizontally */
+        }
+
+        .logo-container img {
+            width: 350px; /* Set the size of the logo */
+            height: 350px;
+            border-radius: 50%; /* Make the logo circular */
+            object-fit: cover; /* Ensure the image fits within the circle */
+            border: 4px solid #465d49; /* Add a border around the circle */
+        }
+
+        /* Quotes Section Styling */
+        .quotes-container {
+            margin-top: 30px;
+            text-align: center;
+            font-style: italic;
+            color: #3c7c46;
+        }
+
+        .quote {
+            font-size: 1.2rem;
+            margin: 15px 0;
+            position: relative;
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            border: 2px solid #3c7c46;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .quote:hover {
+            transform: translateY(-5px);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote:before {
+            content: '“';
+            font-size: 2rem;
+            position: absolute;
+            left: -20px;
+            top: -10px;
+            color: #a1d3b8;
+        }
+
+        .quote:after {
+            content: '”';
+            font-size: 2rem;
+            position: absolute;
+            right: -20px;
+            bottom: -10px;
+            color: #a1d3b8;
+        }
+        /* Testimonials Section */
+        .testimonials {
+            background-color:  #d6efdb;
+            padding: 50px 20px;
+        }
+
+        .testimonial-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .testimonial {
+            width: 300px;
+            text-align: center;
+            margin: 20px;
+            background-color: rgba(184, 224, 190, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+         /* Search Section */
+         .search-section {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .search-section input {
+            width: 50%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #28a745;
+        }
+
+        .search-section button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Responsive Font Sizes */
+        h1 {
+            font-size: 1.5rem; /* Default size for larger screens */
+        }
+
+        h2 {
+            font-size: 1.5rem; /* Default size for larger screens */
+        }
+
+        /* Media Queries for responsiveness */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column; /* Stack links vertically on small screens */
+                align-items: flex-start; /* Align links to the left */
+                padding: 10px 0; /* Adjust padding */
+            }
+
+            .header a {
+                padding: 10px; /* Reduce padding for smaller screens */
+                width: 100%; /* Make links full width */
+                text-align: center; /* Center the text */
+            }
+
+            h1 {
+                font-size: 2rem; /* Smaller font size for h1 */
+            }
+
+            h2 {
+                font-size: 1.2rem; /* Smaller font size for h2 */
+            }
+
+            .logo-container img {
+                width: 150px; /* Smaller logo for smaller screens */
+                height: 150px;
+            }
+
+            .quote {
+                font-size: 1rem; /* Smaller font size for quotes */
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem; /* Even smaller font size for h1 */
+            }
+
+            h2 {
+                font-size: 1rem; /* Even smaller font size for h2 */
+            }
+
+            .logo-container img {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navbar -->
+<header class="header" id="header">
+    <div class="header-container">
+        <a href="/">Home</a>
+        <a href="/explore">Explore</a>
+        <a href="/service">Help Centre</a>
+        <a href="/blog">Blog</a>
+  
+    </div>
+</header>
+
+<!-- Main Content Section -->
+<main>
+    <div class="content">
+        <section id="home">
+            <h1 class="font-bold text-4xl">welcome to pant disease detection 🪴</h1>
+            <h2>Your Plant Health Companion: Discover 🔎 Diagnose and Protect</h2>
+        </section>
+
+        <!-- Logo Section -->
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='img/logo 1.jpg') }}" alt="GreenGuard Logo">
+        </div>
+
+        <!-- Quotes Section -->
+        <div class="quotes-container">
+            <div class="quote">"Sowing the seeds of health, harvesting the power of AI."</div>
+        </div>
+         <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Testimonials & User Stories</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <img src="{{ url_for('static', filename='img/life saver.jpg') }}" alt="User 1">
+                <p>"Saved my crops just in time! GreenGuard is a life saver."</p>
+            </div>
+            <div class="testimonial">
+                <img src="{{ url_for('static', filename='img/highly recommended.jpg') }}" alt="User 2">
+                <p>"The AI diagnosis is quick and accurate, highly recommend GreenGuard."</p>
+            </div>
+            <div class="testimonial">
+                <img src="{{ url_for('static', filename='img/crop yield.jpg') }}" alt="User 3">
+                <p>"GreenGuard helped me improve my crop yield. Thank you!"</p>
+            </div>
+        </div>
+    </section>
+
+    
+ 
+    </div>
+</main>
+
+<!-- Sticky Header Scroll Effect -->
+<script>
+    window.addEventListener('scroll', function() {
+        const header = document.getElementById('header');
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
+
+</body>
+</html>
