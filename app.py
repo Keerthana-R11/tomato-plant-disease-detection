@@ -34,8 +34,6 @@ def predict_disease(image_path):
 
 app = Flask(__name__)
 
-
-
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -80,7 +78,6 @@ def diagnosis():
 def pest_control():
     return render_template('pest-control.html')
     
-
 # Function to save the uploaded image locally
 def save_image_locally(file, filename, save_dir='images'):
     # Create the directory if it doesn't exist
