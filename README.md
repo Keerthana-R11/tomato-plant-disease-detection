@@ -10,8 +10,8 @@ The system analyzes leaf images to identify whether the plant is healthy or dise
 * Classify diseases using ML / CNN models
 * Reduce manual inspection and crop loss
 
-  🛠️ Technologies Used
-  * Python
+🛠️ Technologies Used
+ * Python
  * OpenCV
  * NumPy, Pandas
  * Scikit-learn
