@@ -1,4 +1,4 @@
-# tomato-plant-disease-detection
+# Tomato-plant-disease-detection
 
 This project focuses on automatic detection of tomato plant leaf diseases using image processing and machine learning / deep learning techniques.
 The system analyzes leaf images to identify whether the plant is healthy or diseased, helping in early diagnosis and crop protection.
@@ -21,4 +21,4 @@ The system analyzes leaf images to identify whether the plant is healthy or dise
 * Real-time detection using mobile camera
 * Deployment as a web or mobile app
 * Multi-crop disease detection
-*Improved performance under varying lighting conditions
+* Improved performance under varying lighting conditions
