@@ -13,7 +13,7 @@ The system analyzes leaf images to identify whether the plant is healthy or dise
 🛠️ Technologies Used
  * Python
  * OpenCV
- * NumPy, Pandas
+ * NumPy,Pandas
  * Scikit-learn
  * TensorFlow /Keras
 
