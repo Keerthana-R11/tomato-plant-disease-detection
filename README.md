@@ -15,7 +15,7 @@ The system analyzes leaf images to identify whether the plant is healthy or dise
  * OpenCV
  * NumPy, Pandas
  * Scikit-learn
- * TensorFlow / Keras
+ * TensorFlow /Keras
 
 🚀 Future Enhancements
 * Real-time detection using mobile camera
