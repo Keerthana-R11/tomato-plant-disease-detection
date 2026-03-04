@@ -4,7 +4,6 @@ This project focuses on automatic detection of tomato plant leaf diseases using 
 The system analyzes leaf images to identify whether the plant is healthy or diseased, helping in early diagnosis and crop protection.
 
 🎯 Objectives
-
 * Detect tomato leaf diseases from images
 * Improve accuracy using image preprocessing
 * Classify diseases using ML / CNN models
